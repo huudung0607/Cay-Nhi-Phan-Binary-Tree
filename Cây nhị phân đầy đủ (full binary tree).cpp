@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -23,7 +22,7 @@ struct node {
 		left = right = NULL;
 	}
 };
-void makeRoot(node* root,int u, int v, char c) {
+void makeRoot(node* root, int u, int v, char c) {
 	if (c == 'L') root->left = new node(v);
 	else root->right = new node(v);
 }
@@ -43,9 +42,7 @@ bool checkRoot(node* root) {
 	if (root->left == NULL && root->right != NULL) {
 		return false;
 	}
-	else if (root->left == NULL && root->right == NULL) {
-		return false;
-	}
+	else if (root->left != NULL && root->right == NULL) return false;
 	else {
 		return checkRoot(root->left) && checkRoot(root->right);
 	}
@@ -70,4 +67,3 @@ int main()
 	}
 	else cout << "NO";
 }
-
